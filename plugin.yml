@@ -1,0 +1,48 @@
+main: me.Tiernanator.Zoning.Main
+version: 2.0
+name: Zoning
+description: A Plugin that handles your personal mini kingdoms...
+load: POSTWORLD
+author: Tiernanator
+website: None
+database: false
+depend: [Utilities, Factions]
+prefix: Zones
+softdepend: []
+loadbefore: []
+commands:
+#    saveCoreZone:
+#        description: Alter a Faction's Zone location.
+#       permission: factions.zone.core
+    conquer:
+        description: Set up your zone where you are.
+#        permission: factions.zone.conquer
+    renameZone:
+        description: Rename your zone.
+#        permission: factions.zone.rename
+#    highlightZone:
+#        description: Show markers at the corners of your zone.
+#        permission: factions.zone.highlight
+    addZone:
+        description: Add a new zone to your world.
+        
+#permissions:
+#    factions.zone.*:
+#        description: Gives access to all Faction_Zones permissions.
+#        children:
+#            factions.zone.core: true
+#            factions.zone.conquer: true
+#            factions.zone.rename: true
+#            factions.zone.highlight: true
+#    factions.zone.core:
+#        description: Allows you to change Core Zone Locations.
+#        default: op
+#    factions.zone.conquer:
+#        description: Allows you to conquer your own zone.
+#        default: op
+#    factions.zone.rename:
+#        description: Allows you to rename your zone.
+#        default: op
+#    factions.zone.highlight:
+#        description: (WIP) Allows you to highlight the edges of your zone.
+#        default: op
