@@ -1,4 +1,4 @@
-main: me.Tiernanator.Zoning.Main
+main: me.Tiernanator.Zoning.ZoningMain
 version: 2.0
 name: Zoning
 description: A Plugin that handles your personal mini kingdoms...

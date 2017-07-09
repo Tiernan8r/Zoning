@@ -10,15 +10,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockSpreadEvent;
 
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Fire.FireSpreadInZoneEvent;
 
 public class OnFireSpreadInZone implements Listener {
 
-	public static Main plugin;
+	public static ZoningMain plugin;
 
-	public OnFireSpreadInZone(Main main) {
+	public OnFireSpreadInZone(ZoningMain main) {
 		plugin = main;
 	}
 

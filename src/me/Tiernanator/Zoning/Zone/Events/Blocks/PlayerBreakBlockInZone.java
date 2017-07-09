@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 
 import me.Tiernanator.Colours.Colour;
 import me.Tiernanator.Utilities.Players.PlayerLogger;
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Blocks.BlockBreakInZoneEvent;
 
@@ -19,7 +19,7 @@ public class PlayerBreakBlockInZone implements Listener {
 	ChatColor highlight = Colour.HIGHLIGHT.getColour();
 	ChatColor informative = Colour.INFORMATIVE.getColour();
 
-	public PlayerBreakBlockInZone(Main main) {
+	public PlayerBreakBlockInZone(ZoningMain main) {
 	}
 
 	@EventHandler
@@ -31,36 +31,30 @@ public class PlayerBreakBlockInZone implements Listener {
 
 		Player player = event.getPlayer();
 		Zone zone = event.getZone();
-//		Block block = event.getBlock();
-//
-//		boolean inLocation = zone.isInZone(block);
-//
-//		if (inLocation) {
 
-			if (zone.canBuild(player)) {
-				return;
-			}
-
-			PlayerLogger playerLogger = new PlayerLogger();
-			List<String> ownerNames = zone.getOwnerNames();
-			String zoneName = zone.getDisplayName();
-
-			zoneName = playerLogger.getPlayerNameByUUID(zoneName);
-			if (zoneName == null) {
-				zoneName = zone.getDisplayName();
-				zoneName = zoneName.replaceAll("_", " ");
-			}
-
-			player.sendMessage(warning + "The zone " + informative + zoneName
-					+ warning + " belongs to: ");
-			for (String ownerName : ownerNames) {
-				player.sendMessage(highlight + " - " + ownerName);
-			}
-			player.sendMessage(warning + " and you can't build here!");
-
-			event.setCancelled(true);
+		if (zone.canBuild(player)) {
 			return;
-//		}
+		}
+
+		PlayerLogger playerLogger = new PlayerLogger();
+		List<String> ownerNames = zone.getOwnerNames();
+		String zoneName = zone.getDisplayName();
+
+		zoneName = playerLogger.getPlayerNameByUUID(zoneName);
+		if (zoneName == null) {
+			zoneName = zone.getDisplayName();
+			zoneName = zoneName.replaceAll("_", " ");
+		}
+
+		player.sendMessage(warning + "The zone " + informative + zoneName
+				+ warning + " belongs to: ");
+		for (String ownerName : ownerNames) {
+			player.sendMessage(highlight + " - " + ownerName);
+		}
+		player.sendMessage(warning + " and you can't build here!");
+
+		event.setCancelled(true);
+		return;
 
 	}
 }

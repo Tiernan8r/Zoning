@@ -2,15 +2,15 @@ package me.Tiernanator.Zoning.Schedule;
 
 import org.bukkit.scheduler.BukkitRunnable;
 
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 
 public class PreiodicZoneRefresher extends BukkitRunnable {
 
 	@SuppressWarnings("unused")
-	private static Main plugin;
+	private static ZoningMain plugin;
 
-	public PreiodicZoneRefresher(Main main) {
+	public PreiodicZoneRefresher(ZoningMain main) {
 		plugin = main;
 	}
 	

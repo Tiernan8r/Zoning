@@ -9,19 +9,19 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Player.PlayerInteractInZoneEvent;
 
 public class OnPlayerFlintAndSteekIgniteInZone implements Listener {
 
 	@SuppressWarnings("unused")
-	private static Main plugin;
+	private static ZoningMain plugin;
 
 	private ChatColor warning = Colour.WARNING.getColour();
 	private ChatColor informative = Colour.INFORMATIVE.getColour();
 	
-	public OnPlayerFlintAndSteekIgniteInZone(Main main) {
+	public OnPlayerFlintAndSteekIgniteInZone(ZoningMain main) {
 		plugin = main;
 	}
 

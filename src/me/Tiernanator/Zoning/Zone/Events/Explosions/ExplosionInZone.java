@@ -10,15 +10,15 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Explosions.ExplosionInZoneEvent;
 
 public class ExplosionInZone implements Listener {
 
-	public static Main plugin;
+	public static ZoningMain plugin;
 
-	public ExplosionInZone(Main main) {
+	public ExplosionInZone(ZoningMain main) {
 		plugin = main;
 	}
 

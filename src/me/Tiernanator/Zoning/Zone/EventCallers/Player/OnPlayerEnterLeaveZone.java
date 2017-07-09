@@ -11,20 +11,20 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Player.PlayerEnterZoneEvent;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Player.PlayerLeaveZoneEvent;
 
 public class OnPlayerEnterLeaveZone implements Listener {
 
-	 private static Main plugin;
+	 private static ZoningMain plugin;
 	private HashMap<Player, List<Location>> previousLocations = new HashMap<Player, List<Location>>();
 	private static HashMap<Player, HashMap<Zone, Boolean>> playerInZone = new HashMap<Player, HashMap<Zone, Boolean>>();
 
 	private int arraySize = 5;
 
-	public OnPlayerEnterLeaveZone(Main main) {
+	public OnPlayerEnterLeaveZone(ZoningMain main) {
 		 plugin = main;
 	}
 
@@ -157,15 +157,6 @@ public class OnPlayerEnterLeaveZone implements Listener {
 				inZones.remove(zone);
 				inZones.put(zone, true);
 				
-//				String zoneName = zone.getDisplayName();
-//				
-//				PlayerTitler.playerTitle(player, "Welcome to " + zoneName, true,
-//				false, false, ChatColor.DARK_AQUA, fadeInTicks, stayTicks,
-//				fadeOutTicks, EnumTitleAction.TITLE);
-//				PlayerTitler.playerTitle(player, "Welcome to: ", true,
-//						false, false, ChatColor.DARK_AQUA, fadeInTicks, stayTicks,
-//						fadeOutTicks, EnumTitleAction.TITLE);
-//				PlayerTitler.playerTitle(player, zoneName, true, false, true, ChatColor.AQUA, fadeInTicks, stayTicks, fadeOutTicks, EnumTitleAction.SUBTITLE);
 				addPlayerInZones(player, inZones);
 				
 				PlayerEnterZoneEvent playerEnterZoneEvent = new PlayerEnterZoneEvent(zone, player);
@@ -178,15 +169,6 @@ public class OnPlayerEnterLeaveZone implements Listener {
 				
 				inZones.remove(zone);
 				inZones.put(zone, false);
-//				String zoneName = zone.getDisplayName();
-//				
-//				PlayerTitler.playerTitle(player, "You have left " + zoneName, true,
-//						false, false, ChatColor.GOLD, fadeInTicks, stayTicks,
-//						fadeOutTicks, EnumTitleAction.TITLE);
-//				PlayerTitler.playerTitle(player, "You have left: ", true,
-//						false, false, ChatColor.GOLD, fadeInTicks, stayTicks,
-//						fadeOutTicks, EnumTitleAction.TITLE);
-//				PlayerTitler.playerTitle(player, zoneName, true, false, true, ChatColor.YELLOW, fadeInTicks, stayTicks, fadeOutTicks, EnumTitleAction.SUBTITLE);
 				addPlayerInZones(player, inZones);
 				
 				PlayerLeaveZoneEvent playerLeaveZoneEvent = new PlayerLeaveZoneEvent(zone, player);

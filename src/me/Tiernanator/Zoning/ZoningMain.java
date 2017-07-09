@@ -1,20 +1,14 @@
 package me.Tiernanator.Zoning;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Tiernanator.SQL.SQLServer;
-import me.Tiernanator.SQL.MySQL.MySQL;
 import me.Tiernanator.Zoning.Commands.AddZone;
 import me.Tiernanator.Zoning.Commands.NameMyZone;
 import me.Tiernanator.Zoning.Commands.PlayerConquer;
 import me.Tiernanator.Zoning.Schedule.PreiodicZoneRefresher;
 import me.Tiernanator.Zoning.Zone.Zone;
-import me.Tiernanator.Zoning.Zone.ZoneAccessor;
 import me.Tiernanator.Zoning.Zone.EventCallers.Blocks.OnPlayerBreakBlockInZone;
 import me.Tiernanator.Zoning.Zone.EventCallers.Blocks.OnPlayerPlaceBlockInZone;
 import me.Tiernanator.Zoning.Zone.EventCallers.Explosions.OnEntityExplodeInZone;
@@ -31,7 +25,7 @@ import me.Tiernanator.Zoning.Zone.Events.Fire.OnPlayerFlintAndSteekIgniteInZone;
 import me.Tiernanator.Zoning.Zone.Events.Player.OnPlayerEnterZone;
 import me.Tiernanator.Zoning.Zone.Events.Player.OnPlayerLeaveZone;
 
-public class Main extends JavaPlugin {
+public class ZoningMain extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
@@ -85,7 +79,6 @@ public class Main extends JavaPlugin {
 	private void registerConstants() {
 
 		Zone.setPlugin(this);
-		ZoneAccessor.setPlugin(this);
 
 	}
 	
@@ -96,43 +89,9 @@ public class Main extends JavaPlugin {
 		preiodicZoneRefresher.runTaskTimerAsynchronously(this, 0, 36000);
 	}
 
-	private static MySQL mySQL;
-
 	private void initialiseSQL() {
 
-		mySQL = new MySQL(SQLServer.HOSTNAME, SQLServer.PORT, SQLServer.DATABASE,
-				SQLServer.USERNAME, SQLServer.PASSWORD);
-
-		Connection connection = null;
-		try {
-			connection = mySQL.openConnection();
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		Statement statement = null;
-		try {
-			statement = connection.createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		String query = "USE " + SQLServer.DATABASE.getInfo() + ";";
-
-		statement = null;
-		try {
-			statement = connection.createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			statement.execute(query);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		query = "CREATE TABLE IF NOT EXISTS Zone ( "
+		String query = "CREATE TABLE IF NOT EXISTS Zone ( "
 				+ "Name varchar(255) NOT NULL,"
 				+ "DisplayName varchar(255),"
 				+ "X int,"
@@ -143,29 +102,8 @@ public class Main extends JavaPlugin {
 				+ "Owners varchar(760),"
 				+ "Shared Boolean"
 				+ ");";
+		SQLServer.executeQuery(query);
 
-		statement = null;
-		try {
-			statement = connection.createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			statement.execute(query);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			statement.closeOnCompletion();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static MySQL getSQL() {
-		return mySQL;
 	}
 
 }

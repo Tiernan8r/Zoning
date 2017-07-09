@@ -12,12 +12,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import me.Tiernanator.Utilities.Players.GetPlayer;
 import me.Tiernanator.Utilities.Players.PlayerLogger;
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 
 public class Zone {
 
-	private static Main plugin;
-	public static void setPlugin(Main main) {
+	private static ZoningMain plugin;
+	public static void setPlugin(ZoningMain main) {
 		plugin = main;
 	}
 	
@@ -136,7 +136,7 @@ public class Zone {
 		
 		List<OfflinePlayer> owners = new ArrayList<OfflinePlayer>();
 		for(String ownerName : getOwnerNames()) {
-			OfflinePlayer player = GetPlayer.functionGetOfflinePlayer(ownerName);
+			OfflinePlayer player = GetPlayer.getOfflinePlayer(ownerName);
 			if(player == null) {
 				continue;
 			}
@@ -265,7 +265,7 @@ public class Zone {
 					Location centre = ZoneAccessor.getZoneCentre(zoneName);
 					int radius = ZoneAccessor.getZoneRadius(zoneName);
 					List<String> ownerUUIDs = ZoneAccessor.getZoneOwners(zoneName);
-					boolean shared = ZoneAccessor.getIsShared(zoneName);
+					boolean shared = ZoneAccessor.isShared(zoneName);
 					
 					Zone zone = new Zone(zoneName, displayName, centre, radius, ownerUUIDs, shared);
 					zones.add(zone);

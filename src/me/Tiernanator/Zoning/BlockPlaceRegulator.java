@@ -11,9 +11,9 @@ import org.bukkit.event.block.BlockPlaceEvent;
 public class BlockPlaceRegulator implements Listener {
 
 	@SuppressWarnings("unused")
-	private Main plugin;
+	private ZoningMain plugin;
 
-	public BlockPlaceRegulator(Main main) {
+	public BlockPlaceRegulator(ZoningMain main) {
 		plugin = main;
 	}
 

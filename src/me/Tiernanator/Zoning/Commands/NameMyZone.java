@@ -10,20 +10,20 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.Tiernanator.Colours.Colour;
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.ZoneAccessor;
 
 public class NameMyZone implements CommandExecutor {
 
 	@SuppressWarnings("unused")
-	private Main plugin;
+	private ZoningMain plugin;
 	private ChatColor warning = Colour.WARNING.getColour();
 	private ChatColor informative = Colour.INFORMATIVE.getColour();
 	private ChatColor good = Colour.GOOD.getColour();
 	private ChatColor bad = Colour.BAD.getColour();
 
-	public NameMyZone(Main main) {
+	public NameMyZone(ZoningMain main) {
 		plugin = main;
 	}
 

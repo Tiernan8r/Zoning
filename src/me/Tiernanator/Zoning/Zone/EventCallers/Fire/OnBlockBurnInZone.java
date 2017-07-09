@@ -9,15 +9,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBurnEvent;
 
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Fire.BlockBurnInZoneEvent;
 
 public class OnBlockBurnInZone implements Listener {
 
-	public static Main plugin;
+	public static ZoningMain plugin;
 
-	public OnBlockBurnInZone(Main main) {
+	public OnBlockBurnInZone(ZoningMain main) {
 		plugin = main;
 	}
 
@@ -54,24 +54,6 @@ public class OnBlockBurnInZone implements Listener {
 			boolean inLocation = zone.isInZone(block);
 
 			if (inLocation) {
-				//
-				// Location blockLocation = event.getBlock().getLocation();
-				// double x = blockLocation.getX();
-				// double y = blockLocation.getY();
-				// double z = blockLocation.getZ();
-				//
-				// for (double i = (x - 1); i < (x + 1); i += 1) {
-				// for (double j = (y - 1); j < (y + 1); j += 1) {
-				// for (double k = (z - 1); k < (z + 1); k += 1) {
-				// Location currentLocation = new Location(
-				// blockLocation.getWorld(), i, j, k);
-				// Block currentBlock = currentLocation.getBlock();
-				// if (currentBlock.getType() == Material.FIRE) {
-				// currentBlock.setType(Material.AIR);
-				// }
-				// }
-				// }
-				// }
 				BlockBurnInZoneEvent blockBurnInZoneEvent = new BlockBurnInZoneEvent(
 						zone, block);
 				plugin.getServer().getPluginManager()

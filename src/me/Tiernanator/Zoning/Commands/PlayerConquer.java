@@ -12,14 +12,14 @@ import org.bukkit.entity.Player;
 import me.Tiernanator.Colours.Colour;
 import me.Tiernanator.Factions.Factions.Faction;
 import me.Tiernanator.Factions.Factions.FactionAccessor;
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.ZoneAccessor;
 
 public class PlayerConquer implements CommandExecutor {
 
 	@SuppressWarnings("unused")
-	private Main plugin;
+	private ZoningMain plugin;
 	ChatColor warning = Colour.WARNING.getColour();
 	ChatColor informative = Colour.INFORMATIVE.getColour();
 	ChatColor highlight = Colour.HIGHLIGHT.getColour();
@@ -27,7 +27,7 @@ public class PlayerConquer implements CommandExecutor {
 	ChatColor regal = Colour.REGAL.getColour();
 	ChatColor bad = Colour.BAD.getColour();
 
-	public PlayerConquer(Main main) {
+	public PlayerConquer(ZoningMain main) {
 		plugin = main;
 	}
 

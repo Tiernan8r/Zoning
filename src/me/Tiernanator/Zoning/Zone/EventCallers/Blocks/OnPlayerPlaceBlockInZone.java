@@ -10,7 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Blocks.BlockPlaceInZoneEvent;
 
@@ -20,9 +20,9 @@ public class OnPlayerPlaceBlockInZone implements Listener {
 //	private ChatColor highlight = Colour.HIGHLIGHT.getColour();
 //	private ChatColor informative = Colour.INFORMATIVE.getColour();
 
-	private static Main plugin;
+	private static ZoningMain plugin;
 	
-	public OnPlayerPlaceBlockInZone(Main main) {
+	public OnPlayerPlaceBlockInZone(ZoningMain main) {
 		plugin = main;
 	}
 
@@ -63,28 +63,6 @@ public class OnPlayerPlaceBlockInZone implements Listener {
 			
 			if (inLocation) {
 				
-//				if(zone.canBuild(player)) {
-//					return;
-//				}
-//
-//				PlayerLogger playerLogger = new PlayerLogger();
-//				List<String> ownerNames = zone.getOwnerNames();
-//				String zoneName = zone.getDisplayName();
-//				
-//				zoneName = playerLogger.getPlayerNameByUUID(zoneName);
-//				if(zoneName == null) {
-//					zoneName = zone.getDisplayName();
-//					zoneName = zoneName.replaceAll("_", " ");
-//				}
-//				
-//				player.sendMessage(warning + "The zone " + informative + zoneName + warning + " belongs to: ");
-//				for(String ownerName : ownerNames) {
-//					player.sendMessage(highlight + " - " + ownerName);
-//				}
-//				player.sendMessage(warning + " and you can't build here!");
-//
-//				event.setCancelled(true);
-//				return;
 				BlockPlaceInZoneEvent blockPlaceInZoneEvent = new BlockPlaceInZoneEvent(zone, player, block);
 				plugin.getServer().getPluginManager().callEvent(blockPlaceInZoneEvent);
 				event.setCancelled(blockPlaceInZoneEvent.isCancelled());

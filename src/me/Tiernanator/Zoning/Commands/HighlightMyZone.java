@@ -13,13 +13,13 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 import me.Tiernanator.File.ConfigAccessor;
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 
 public class HighlightMyZone implements CommandExecutor {
 
-	private Main plugin;
+	private ZoningMain plugin;
 
-	public HighlightMyZone(Main main) {
+	public HighlightMyZone(ZoningMain main) {
 		plugin = main;
 	}
 

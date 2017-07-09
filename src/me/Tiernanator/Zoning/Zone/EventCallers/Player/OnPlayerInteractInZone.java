@@ -14,15 +14,15 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
-import me.Tiernanator.Zoning.Main;
+import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Player.PlayerInteractInZoneEvent;
 
 public class OnPlayerInteractInZone implements Listener {
 
-	private static Main plugin;
+	private static ZoningMain plugin;
 	
-	public OnPlayerInteractInZone(Main main) {
+	public OnPlayerInteractInZone(ZoningMain main) {
 		plugin = main;
 	}
 
