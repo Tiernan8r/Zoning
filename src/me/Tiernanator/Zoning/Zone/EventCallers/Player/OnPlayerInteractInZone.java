@@ -26,13 +26,14 @@ public class OnPlayerInteractInZone implements Listener {
 		plugin = main;
 	}
 
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onPlayerBreakBlock(PlayerInteractEvent event) {
 		
 		if (event.isCancelled()) {
 			return;
 		}
-
+		
 		List<Zone> allZones = Zone.allZones();
 		
 		if(allZones == null) {

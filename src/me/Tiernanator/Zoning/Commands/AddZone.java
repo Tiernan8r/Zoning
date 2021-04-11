@@ -11,7 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.Tiernanator.Colours.Colour;
+import me.Tiernanator.Utilities.Colours.Colour;
 import me.Tiernanator.Utilities.Locations.RelativeLocation;
 import me.Tiernanator.Utilities.Players.GetPlayer;
 import me.Tiernanator.Utilities.Players.PlayerLogger;
@@ -164,14 +164,13 @@ public class AddZone implements CommandExecutor {
 				+ good + " ," + regal + y + good + " ," + regal + z + good
 				+ " and radius " + highlight + radius + good
 				+ ", it belongs to: ");
-		PlayerLogger playerLogger = new PlayerLogger();
 		for (String owner : ownerUUIDs) {
 			if (owner.equalsIgnoreCase("All")
 					|| owner.equalsIgnoreCase("None")) {
 				player.sendMessage(highlight + " - [" + owner + "]");
 				break;
 			} else {
-				String ownerName = playerLogger.getPlayerNameByUUID(owner);
+				String ownerName = PlayerLogger.getPlayerNameByUUID(owner);
 				player.sendMessage(highlight + " - " + ownerName);
 			}
 		}

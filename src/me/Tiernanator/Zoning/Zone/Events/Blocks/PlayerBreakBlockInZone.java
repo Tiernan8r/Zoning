@@ -7,9 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import me.Tiernanator.Colours.Colour;
+import me.Tiernanator.Utilities.Colours.Colour;
 import me.Tiernanator.Utilities.Players.PlayerLogger;
-import me.Tiernanator.Zoning.ZoningMain;
 import me.Tiernanator.Zoning.Zone.Zone;
 import me.Tiernanator.Zoning.Zone.CustomEvents.Blocks.BlockBreakInZoneEvent;
 
@@ -19,7 +18,7 @@ public class PlayerBreakBlockInZone implements Listener {
 	ChatColor highlight = Colour.HIGHLIGHT.getColour();
 	ChatColor informative = Colour.INFORMATIVE.getColour();
 
-	public PlayerBreakBlockInZone(ZoningMain main) {
+	public PlayerBreakBlockInZone() { 
 	}
 
 	@EventHandler
@@ -36,11 +35,10 @@ public class PlayerBreakBlockInZone implements Listener {
 			return;
 		}
 
-		PlayerLogger playerLogger = new PlayerLogger();
 		List<String> ownerNames = zone.getOwnerNames();
 		String zoneName = zone.getDisplayName();
 
-		zoneName = playerLogger.getPlayerNameByUUID(zoneName);
+		zoneName = PlayerLogger.getPlayerNameByUUID(zoneName);
 		if (zoneName == null) {
 			zoneName = zone.getDisplayName();
 			zoneName = zoneName.replaceAll("_", " ");

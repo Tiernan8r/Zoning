@@ -3,7 +3,7 @@ package me.Tiernanator.Zoning;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.Tiernanator.SQL.SQLServer;
+import me.Tiernanator.Utilities.SQL.SQLServer;
 import me.Tiernanator.Zoning.Commands.AddZone;
 import me.Tiernanator.Zoning.Commands.NameMyZone;
 import me.Tiernanator.Zoning.Commands.PlayerConquer;
@@ -64,8 +64,8 @@ public class ZoningMain extends JavaPlugin {
 		pm.registerEvents(new OnPlayerInteractInZone(this), this);
 		
 		//Event Handlers
-		pm.registerEvents(new PlayerBreakBlockInZone(this), this);
-		pm.registerEvents(new PlayerPlaceBlockInZone(this), this);
+		pm.registerEvents(new PlayerBreakBlockInZone(), this);
+		pm.registerEvents(new PlayerPlaceBlockInZone(), this);
 		pm.registerEvents(new ExplosionInZone(this), this);
 		pm.registerEvents(new FireInZone(this), this);
 		pm.registerEvents(new FireSpreadInZone(this), this);

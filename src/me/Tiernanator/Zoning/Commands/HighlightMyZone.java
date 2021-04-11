@@ -12,7 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-import me.Tiernanator.File.ConfigAccessor;
+import me.Tiernanator.Utilities.File.ConfigAccessor;
 import me.Tiernanator.Zoning.ZoningMain;
 
 public class HighlightMyZone implements CommandExecutor {

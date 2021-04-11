@@ -113,7 +113,6 @@ public class Zone {
 	public List<String> getOwnerNames() {
 		
 		List<String> owners = new ArrayList<String>();
-		PlayerLogger playerLogger = new PlayerLogger();
 		for(String ownerUUID : getOwnerUUIDs()) {
 			if(ownerUUID.equalsIgnoreCase("All")) {
 				owners.add("[All]");
@@ -122,7 +121,7 @@ public class Zone {
 				owners.add("[None]");
 				break;
 			}
-			String ownerName = playerLogger.getPlayerNameByUUID(ownerUUID);
+			String ownerName = PlayerLogger.getPlayerNameByUUID(ownerUUID);
 			if(ownerName == null) {
 				continue;
 			}
